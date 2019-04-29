@@ -8,7 +8,7 @@ public class SetupTestUsers {
 
   public static void main(String[] args) {
 
-    EntityManager em = PuSelector.getEntityManagerFactory("pu").createEntityManager();
+    EntityManager em = PuSelector.getEntityManagerFactory("pu_production").createEntityManager();
        
     // IMPORTAAAAAAAAAANT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // This breaks one of the MOST fundamental security rules in that it ships with default users and passwords
@@ -19,11 +19,11 @@ public class SetupTestUsers {
     em.getTransaction().begin();
     Role userRole = new Role("user");
     Role adminRole = new Role("admin");
-    User user = new User("user", "test");
+    User user = new User("user", "pass1234");
     user.addRole(userRole);
-    User admin = new User("admin", "test");
+    User admin = new User("admin", "1234pass");
     admin.addRole(adminRole);
-    User both = new User("user_admin", "test");
+    User both = new User("user_admin", "12341234");
     both.addRole(userRole);
     both.addRole(adminRole);
     em.persist(userRole);
