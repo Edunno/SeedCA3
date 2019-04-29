@@ -26,7 +26,7 @@ public class SetupTestUsers {
     User both = new User("user_admin", "12341234");
     both.addRole(userRole);
     both.addRole(adminRole);
-    em.persist(userRole);
+     em.persist(userRole);
     em.persist(adminRole);
     em.persist(user);
     em.persist(admin);
